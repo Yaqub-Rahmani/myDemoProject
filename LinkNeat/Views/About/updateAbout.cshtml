@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewBag.Title = "updateAbout";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("updateAbout", "About", FormMethod.Post))
+{
+    <div class="container">
+        <h3 class="bg-secondary p-4">Update Admin</h3>
+        <form class="needs-validation m-t-3 mt-5" novalidate>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 my-3">
+                            @Html.HiddenFor(x => x.aboutID)
+                            @Html.HiddenFor(x => x.aboutAct)
+                            @Html.HiddenFor(x => x.aboutDate)
+                            @Html.HiddenFor(x => x.aboutPhotoUrl)
+
+                            @Html.Label("Name:", new { @class = "text-muted" })
+                            @Html.TextAreaFor(x => x.aboutDetails, new { @class = "form-control", @placeholder = "Name" , style = "height: 400px" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center pt-5 mt-auto">
+                    <img src="@Html.DisplayFor(x=>x.aboutPhotoUrl)" style="height: 300px" />
+                </div>
+
+            </div>
+
+            <button class="btn btn-sm btn-primary px-5 mt-3 py-2">
+                <i class="fas fa-check mr-3"></i> Save
+            </button>
+        </form>
+    </div>
+
+}
+
+

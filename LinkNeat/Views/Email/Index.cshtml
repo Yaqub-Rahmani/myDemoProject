@@ -1,0 +1,59 @@
+﻿@using EntityLayer.Concrete
+@model List<Contect>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Inbox</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <div class="table-responsive mailbox-messages">
+                    <table class="table table-hover table-striped">
+                        <thead class="fixedHeader-floating">
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var itemet in Model)
+                            {
+
+                                <tr>
+                                    <th>@itemet.contectID</th>
+                                    <th class="text-primary"><a href="/Email/ReadMasseg/@itemet.contectID">@itemet.contectName</a></th>
+                                    <td>@itemet.contectSubject</td>
+                                    <td>@itemet.contectEmail</td>
+                                    <td>@itemet.contectMessage.Substring(0, 30)</td>
+                                    <td>@itemet.contectDate.ToShortDateString()</td>
+                                    <td>
+                                        <a href="/Email/RemoveMasseg/@itemet.contectID" class="btn btn-danger btn-sm px-3" data-container="body" title="Delete">
+                                            <i class="far fa-trash-alt pl-3"></i>
+                                            Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <!-- /.table -->
+                </div>
+                <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

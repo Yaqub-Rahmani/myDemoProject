@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.infoContect
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayputPage.cshtml";
+}
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url(/Content/PhotoHomeInfo/sideCompanyInfo500x220.png); margin-bottom: 100px;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 text-left">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                        <h1 class="mb30">Contact Us</h1>
+                        <h4 class="mb30 text-muted">Over the phone or online</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="fh5co-contact-info">
+                <h3>Contact Information</h3>
+                <ul>
+                    <li class="address">@Html.DisplayFor(x => x.mcontectAddres)</li>
+                    <li class="phone">@Html.DisplayFor(x => x.mcontectPhone)</li>
+                    <li class="url">@Html.DisplayFor(x => x.mcontectFaxNo)</li>
+                    <li class="email">@Html.DisplayFor(x => x.mcontectEmail)</li>
+                    <li class="about" style="margin-right:50px;"><a>@Html.DisplayFor(x => x.mcontectAciklama)</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+
+        @*Data*@
+        <div class="col-md-6 animate-box">
+            @Html.Action("SendContact", "sideContact")
+        </div>
+    </div>
+
+</div>
+

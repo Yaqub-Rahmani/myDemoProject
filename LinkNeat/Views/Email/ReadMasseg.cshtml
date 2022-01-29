@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Contect
+@{
+    ViewBag.Title = "ReadMasseg";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Read Mail</h3>
+                <br />
+                <div class="mailbox-controls with-border float-right">
+                    <!-- /.btn-group -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <div class="mailbox-read-info">
+                        <h6>Subject:&emsp;@Html.DisplayFor(x => x.contectSubject)</h6>
+                        <h6>From:&emsp;@Html.DisplayFor(x => x.contectEmail)</h6>
+                        <p><span class="mailbox-read-time float-right">@ViewBag.mdates</span></p>
+                    </div>
+                    <!-- /.mailbox-read-info -->
+                </div>
+                <!-- /.mailbox-controls -->
+                <div class="mailbox-read-message">
+                    <p>Sender Name:&emsp;@Html.DisplayFor(x => x.contectName)</p>
+                    <p>@Html.DisplayFor(x => x.contectMessage)</p>
+                </div>
+                <!-- /.mailbox-read-message -->
+            </div>
+            <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+
+</div>

@@ -1,0 +1,96 @@
+﻿@model EntityLayer.Concrete.EmployeeUser
+@{
+    ViewBag.Title = "updateEmployee";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("updateEmployee", "Enployee", FormMethod.Post))
+{
+    <div class="container">
+        <h3 class="bg-secondary py-3 px-5">Update Employee</h3>
+        <form class="needs-validation" novalidate>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-6">
+                            @Html.HiddenFor(x => x.employeeID)
+                            @Html.HiddenFor(x => x.employeeAct)
+                            @Html.HiddenFor(x => x.employeePhoto)
+                            @Html.HiddenFor(x => x.SavedateTime)
+
+                            @Html.Label("User Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeUserName, new { @class = "form-control", @placeholder = "User Name" })
+                            @Html.ValidationMessageFor(x => x.employeeUserName)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Last Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeLastName, new { @class = "form-control", @placeholder = "Last name" })
+                            @Html.ValidationMessageFor(x => x.employeeLastName)
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-12">
+                            @Html.Label("Full Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeNikName, new { @class = "form-control", @placeholder = "Full Name" })
+                            @Html.ValidationMessageFor(x => x.employeeNikName)
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-12">
+                            @Html.Label("Address:", new { @class = "text-muted" })
+                            @Html.TextAreaFor(x => x.employeeAddress, new { @class = "form-control", @placeholder = "Address", style = "height: 138px" })
+                            @Html.ValidationMessageFor(x => x.employeeAddress)
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center pt-5">
+                        <img src="@Html.DisplayFor(x=>x.employeePhoto)" style="height: 200px; margin-bottom: 20px" />
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-12">
+                            @Html.Label("Skills:", new { @class = "text-muted" })
+                            @Html.TextAreaFor(x => x.employeeSkills, new { @class = "form-control", @placeholder = "Skills", style = "height: 138px" })
+                            @Html.ValidationMessageFor(x => x.employeeSkills)
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-6">
+                            @Html.Label("Category", new { @class = "text-muted" })
+                            @Html.DropDownListFor(x => x.catagoryID, (List<SelectListItem>)ViewBag.mCatList, "-- Select --", new { @class = "form-control" })
+
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Minimum salary:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeMoneyAz, new { @class = "form-control", @placeholder = "Minimum salary" })
+                            @Html.ValidationMessageFor(x => x.employeeMoneyAz)
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-md-6">
+                            @Html.Label("Email:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeEmail, new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(x => x.employeeEmail)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.Label("Mobile:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.employeeMobile, new { @class = "form-control", @placeholder = "Mobile" })
+                            @Html.ValidationMessageFor(x => x.employeeMobile)
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <button class="btn btn-lg btn-primary px-5 float-right" style="margin-top: 60px; font-size: 18px">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+}
+
+

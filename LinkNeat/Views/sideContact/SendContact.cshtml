@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Contect
+
+<h3>Get In Touch</h3>
+<form action="#" method="post">
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label for="lname">Full Name:</label>
+            <input type="text" name="contectName" class="form-control" placeholder="Full Name">
+            @Html.ValidationMessageFor(x => x.contectName)
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label for="lname">Email:</label>
+            <input type="text" name="contectEmail"class="form-control" placeholder="Email">
+            @Html.ValidationMessageFor(x => x.contectEmail)
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label for="lname">Subject:</label>
+            <input type="text" name="contectSubject"class="form-control" placeholder="Subject">
+            @Html.ValidationMessageFor(x => x.contectSubject)
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12">
+            <label for="message">Message</label>
+            <textarea name="contectMessage" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+            @Html.ValidationMessageFor(x => x.contectMessage)
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Send Message" class="btn btn-lg btn-primary">
+    </div>
+
+</form>

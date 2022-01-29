@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.Catagory
+@{
+    ViewBag.Title = "addCategory";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("addCategory", "Catagory", FormMethod.Post))
+{
+    <div class="container">
+        <h3 class="bg-secondary p-4">Add Category</h3>
+        <form class="needs-validation m-t-3 mt-5" novalidate>
+            <div class="row">
+                <div class="col-md-6 my-3">
+                    @Html.Label("Category Name:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.catagoryName, new { @class = "form-control", @placeholder = "Category Name" })
+                    @Html.ValidationMessageFor(x=>x.catagoryName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 my-3">
+                    @Html.Label("Category Description:", new { @class = "text-muted" })
+                    @Html.TextAreaFor(x => x.catagoryAciklama, new { @class = "form-control", @placeholder = "Description", style = "height: 220px" })
+                    @Html.ValidationMessageFor(x => x.catagoryAciklama)
+                </div>
+            </div>
+            <button class="btn btn-sm btn-primary px-5 py-1">
+                <i class="fas fa-check mr-3"></i> Save
+            </button>
+        </form>
+    </div>
+}

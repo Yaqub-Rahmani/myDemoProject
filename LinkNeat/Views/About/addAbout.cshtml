@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Concrete.About
+@{
+    ViewBag.Title = "add Album";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+@using (Html.BeginForm("addAbout", "About", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <h3 class="bg-secondary p-4">Add Album</h3>
+        <form class="needs-validation m-t-3 mt-5" novalidate>
+            <div class="row">
+                <div class="col-md-6 my-3">
+                    @Html.Label("Album Text:", new { @class = "text-muted" })
+                    @Html.TextAreaFor(x => x.aboutDetails, new { @class = "form-control", @placeholder = "Text", style = "height: 220px" })
+                    @Html.ValidationMessageFor(x => x.aboutDetails)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 my-3">
+                    @Html.Label("Photo:", new { @class = "text-muted" })
+                    <input type="file" name="aboutPhotoUrl" class="form-control" placeholder="Photo" />
+                </div>
+            </div>
+            <button class="btn btn-primary px-5 mt-3 py-2">
+                <i class="fas fa-check mr-3"></i> Save
+            </button>
+        </form>
+    </div>
+}

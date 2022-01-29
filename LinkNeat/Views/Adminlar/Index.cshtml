@@ -1,0 +1,98 @@
+﻿@using EntityLayer.Concrete
+@model List<AdminLar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-header">
+            <h1 class="card-title">Admins</h1>
+
+        </div>
+        <!-- /.card-header -->
+
+        <div class="card-body pb-0">
+            <div class="row">
+
+
+                @foreach (var itemem in Model)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
+                        <div class="card bg-light d-flex flex-fill">
+                            <div class="card-header text-muted border-bottom-0 float-right">
+                                AdminRoll: <b class="text-success"> &emsp; @itemem.AdminRoll</b>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>&ensp; @itemem.AdminLastName</b></h2>
+                                        <p class="text-muted text-sm float-left" style="margin-top: 30px">
+                                            <i class="fas fa-user mr-2"></i>
+                                            <b>Username: </b>&ensp; @itemem.AdminUserName
+                                        </p>
+                                        <p class="text-muted text-sm float-left" style="margin-top: -10px">
+                                            <i class="fas fa-lock mr-2"></i>
+                                            <b>Password: </b>&ensp; @itemem.AdminPassword
+                                        </p>
+                                        <p class="text-muted text-sm float-left" style="margin-top: -10px">
+                                            <i class="fas fa-mail-bulk mr-2"></i>
+                                            <b>Email: </b> &ensp; @itemem.AdminEmail.Substring(0, 15)
+                                        </p>
+                                    </div>
+
+                                    <div class="col-5 text-center">
+                                        <img src="@itemem.AdminPhotoUrl" alt="user-avatar" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="/Adminlar/updateAdmin/@itemem.AdminID" class="btn btn-sm btn-success">
+                                        <i class="fas fa-undo mr-2"></i> Update
+                                    </a>
+                                    <a href="/Adminlar/removeAdmin/@itemem.AdminID" class="btn btn-sm bg-danger">
+                                        <i class="fas fa-times mr-2"></i> Remove
+                                    </a>
+                                    @if (itemem.AdminAct)
+                                    {
+
+
+                                        <a href="/Adminlar/changeAdmin/@itemem.AdminID" class="btn btn-sm btn-primary float-left">
+                                            <i class="fas fa-toggle-on mx-3"></i> Active
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Adminlar/changeAdmin/@itemem.AdminID" class="btn btn-sm btn-warning float-left">
+                                            <i class="fas fa-toggle-off mx-3"></i> Inactive
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+<br />
+<a href="/Adminlar/addAdmin/" class="btn btn-sm btn-outline-primary px-3 py-2 ml-5">
+    <i class="fas fa-plus mr-2"></i>
+    New Admin
+</a>
+
+
+
+
+
+
+
+

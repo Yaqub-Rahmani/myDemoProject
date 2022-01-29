@@ -1,0 +1,67 @@
+﻿@model EntityLayer.Concrete.EmployeeUser
+@{
+    ViewBag.Title = "viewEmployee";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-header">
+            <h1 class="card-title">Employee Information</h1>
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body pb-0">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile mb-5 text-center">
+                            <img src="@Html.DisplayFor(x=>x.employeePhoto)" class="img-circle img-fluid" style="height: 250px" />
+                            <h4 class="profile-username text-center my-3">@Html.DisplayFor(x => x.employeeNikName)</h4>
+                            <p class="text-muted text-center my-3">@Html.DisplayFor(x => x.employeeUserName) &mdash; @Html.DisplayFor(x => x.employeeLastName)</p>
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+                                    <b class="mx-3">Minimum Salary:</b> <a class="mx-3"> &emsp; $ @Html.DisplayFor(x => x.employeeMoneyAz)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Category:</b> <a class="float-right"> &emsp; @Html.DisplayFor(x => x.Catagory.catagoryName)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Save Date:</b> <a class="float-right"> &emsp; @ViewBag.mdate</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Mobile: </b> <a class="float-right"> &emsp; @Html.DisplayFor(x => x.employeeMobile)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Email: </b> <a class="float-right"> &emsp; @Html.DisplayFor(x => x.employeeEmail)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Skills: </b> <h6 class="float-left"> &emsp; @Html.DisplayFor(x => x.employeeSkills)</h6>
+                                </li>
+                                <li class="list-group-item">
+                                    <b class="float-left">Fax: </b> <h6 class="float-left"> &emsp; @Html.DisplayFor(x => x.employeeAddress)</h6>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>

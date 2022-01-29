@@ -1,0 +1,70 @@
+/*------------------------------------------------------------------
+    Gallery
+-------------------------------------------------------------------*/
+
+
+.img-fluid {
+	max-width: 100%;
+	height: auto
+}
+
+
+.gallery-box{
+	padding: 70px 0px;
+}
+
+.gallery-box ul{}
+.gallery-box ul li{
+	position: relative;
+	width: 25%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	border: none;
+	overflow: hidden;
+}
+.gallery-box ul li a{
+	position: relative;
+	display: inline-block;
+}
+.gallery-box ul li a::before{
+	content: "";
+	position: absolute;
+	background: rgba(99, 199, 189, 0.5);
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 100%;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+}
+.gallery-box ul li a .overlay{
+	background: #dd666c;
+	color: #ffffff;
+	font-size: 22px;
+	text-align: center;
+	width: 38px;
+	height: 38px;
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+}
+.gallery-box ul li a:hover::before{
+	top: 0;
+	opacity: 1;
+}
+.gallery-box ul li a:hover .overlay{
+	opacity: 1;
+}

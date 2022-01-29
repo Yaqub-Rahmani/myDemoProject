@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LINKNEAT | Log in</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link href="~/Content/asset/plugins/fontawesome-free/css/all.css" rel="stylesheet" />
+
+
+    <!-- Theme style -->
+    <link href="~/Content/asset/dist/css/adminlte.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <p class="h1 text-primary"><b>LINK</b>NEAT</p>
+                
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("LoginIN", "Adminlar", FormMethod.Post))
+                {
+                <div class="text-center">
+                    <img class="mb-4 img-circle img-fluid" src="~/CompanyLogo/logoom.png" alt="" width="200" height="200">
+                    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                </div>
+            
+                     <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="AdminUserName" placeholder="Username">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" name="AdminPassword" placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+
+                }
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/Content/asset/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/asset/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/asset/dist/js/adminlte.js"></script>
+</body>
+</html>

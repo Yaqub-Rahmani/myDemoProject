@@ -1,0 +1,85 @@
+﻿@model EntityLayer.Concrete.Company
+@{
+    ViewBag.Title = "addSideCompany";
+    Layout = "~/Views/Shared/_LayputPage.cshtml";
+}
+
+
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image: url(/Content/PhotoHomeInfo/Tilent.png); margin-bottom: 100px;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 text-left">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeInUp">
+                        <h1 class="mb30">FIND&ensp;TALENT</h1>
+                        <h4 class="mb30 text-muted">Your dream candidate is just around the corner.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+@using (Html.BeginForm("addSideCompany", "sideAddCompany", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <h3 class="bg-secondary">If you're looking for talent, contact us here:</h3>
+        <form class="needs-validation" novalidate>
+            <div class="row" style="margin-top: 40px">
+                <div class="col-md-6">
+                    @Html.Label("Company Name:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyName, new { @class = "form-control", @placeholder = "Company Name" })
+                    @Html.ValidationMessageFor(x => x.companyName)
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Owner Name:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyBoss, new { @class = "form-control", @placeholder = "Company owner name" })
+                    @Html.ValidationMessageFor(x => x.companyBoss)
+                </div>
+            </div>
+            <div class="row" style="margin-top: 40px">
+                <div class="col-md-4">
+                    @Html.Label("Category", new { @class = "text-muted" })
+                    @Html.DropDownListFor(x => x.catagoryID, (List<SelectListItem>)ViewBag.MyCatagory, "-- Select --", new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Email:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyEmail, new { @class = "form-control", @placeholder = "Company Email" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Address:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyAddress, new { @class = "form-control", @placeholder = "Company address" })
+                </div>
+            </div>
+            <div class="row" style="margin-top: 40px">
+                <div class="col-md-4">
+                    @Html.Label("Phone:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyPhone, new { @class = "form-control", @placeholder = "Company phone" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Mobile:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyMobile, new { @class = "form-control", @placeholder = "Company mobile" })
+                </div>
+                <div class="col-md-4">
+                    @Html.Label("Fax:", new { @class = "text-muted" })
+                    @Html.TextBoxFor(x => x.companyFaxNo, new { @class = "form-control", @placeholder = "Company Fax NO" })
+                </div>
+            </div>
+            <div class="row" style="margin-top: 40px">
+                <div class="col-md-12">
+                    @Html.Label("Company logo:", new { @class = "text-muted" })
+                    <input type="file" name="companyLogoPhoto" class="form-control" placeholder="Company logo simple" />
+                </div>
+
+                <button class="btn btn-lg btn-primary" style="margin-top: 50px; font-size: 18px">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+
+}
+

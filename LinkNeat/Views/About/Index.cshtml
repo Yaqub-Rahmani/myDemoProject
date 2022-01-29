@@ -1,0 +1,99 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Album</h1>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Albums</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body p-0">
+            <div class="row">
+
+
+                @foreach (var itemem in Model)
+                {
+                <div class="col-md-3">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Album item</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <img class="img-fluid mb-4" src="@itemem.aboutPhotoUrl"/>
+                            <small class="my-3"><b>Date:</b> &ensp; @itemem.aboutDate.ToShortDateString()</small>
+                            <p class="my-3">@itemem.aboutDetails.Substring(0,54)</p>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+
+                            @if (itemem.aboutAct.Equals(true))
+                            {
+                                <a class="btn btn-outline-primary btn-sm mx-1 px-5 my-2" href="/About/changeAbout/@itemem.aboutID">Active</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-warning btn-sm mx-1 px-5 my-2" href="/About/changeAbout/@itemem.aboutID">Inactive</a>
+                            }
+                            <a class="btn btn-outline-success btn-sm mx-1 px-3 my-2" href="/About/updateAbout/@itemem.aboutID">Update</a>
+                            <a class="btn btn-outline-danger btn-sm mx-1 px-3 my-2" href="/About/removeAbout/@itemem.aboutID">Remove</a>
+
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                }
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+<a href="/About/addAbout" class="btn btn-sm btn-outline-primary mb-5 px-3 py-2 ml-5">
+    <i class="fas fa-plus mr-2"></i>
+    New About
+</a>
+

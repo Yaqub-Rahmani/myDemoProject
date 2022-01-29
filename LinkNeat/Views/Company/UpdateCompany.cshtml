@@ -1,0 +1,73 @@
+﻿@model EntityLayer.Concrete.Company
+@{
+    ViewBag.Title = "UpdateCompany";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCompany", "Company", FormMethod.Post))
+{
+    <div class="container">
+        <h3 class="bg-secondary p-4">Update Company</h3>
+        <form class="needs-validation m-t-3 mt-5" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 my-3">
+                            @Html.HiddenFor(x=>x.companyID)
+                            @Html.HiddenFor(x=>x.companyLogoPhoto)
+                            @Html.HiddenFor(x=>x.companySaveDate)
+
+                            @Html.Label("Company Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyName, new { @class = "form-control", @placeholder = "Company Name" })
+                            @Html.ValidationMessageFor(x => x.companyName)
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Owner Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyBoss, new { @class = "form-control", @placeholder = "Company owner name" })
+                            @Html.ValidationMessageFor(x => x.companyBoss)
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Category", new { @class = "text-muted" })
+                            @Html.DropDownListFor(x => x.catagoryID, (List<SelectListItem>)ViewBag.MyCatagory, "-- Select --", new { @class = "form-control" })
+
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Email:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyEmail, new { @class = "form-control", @placeholder = "Company Email" })
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Phone:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyPhone, new { @class = "form-control", @placeholder = "Company phone" })
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Mobile:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyMobile, new { @class = "form-control", @placeholder = "Company mobile" })
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Fax:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyFaxNo, new { @class = "form-control", @placeholder = "Company Fax NO" })
+                        </div>
+                        <br />
+                        <div class="col-md-12 my-3">
+                            @Html.Label("Address:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.companyAddress, new { @class = "form-control", @placeholder = "Company address" })
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center pt-5">
+                    <img src="@Html.DisplayFor(x=>x.companyLogoPhoto)" style="height: 400px" />
+                </div>
+                <div class="row">
+                    <button class="btn btn-sm btn-outline-primary px-5 py-2">
+                        <i class="fas fa-check mr-3"></i> Save
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+}
+

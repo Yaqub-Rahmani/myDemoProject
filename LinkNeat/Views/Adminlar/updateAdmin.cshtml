@@ -1,0 +1,59 @@
+﻿@model EntityLayer.Concrete.AdminLar
+@{
+    ViewBag.Title = "updateAdmin";
+    Layout = "~/Views/Shared/_manigLayout.cshtml";
+}
+
+@using (Html.BeginForm("updateAdmin", "AdminLar", FormMethod.Post))
+{
+    <div class="container">
+        <h3 class="bg-secondary p-4">Update Admin</h3>
+        <form class="needs-validation m-t-3 mt-5" novalidate>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 my-3">
+                            @Html.HiddenFor(x => x.AdminID)
+                            @Html.HiddenFor(x => x.AdminAct)
+                            @Html.HiddenFor(x => x.AdminPhotoUrl)
+                            @Html.Label("Name:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.AdminLastName, new { @class = "form-control", @placeholder = "Name" })
+
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Username:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.AdminUserName, new { @class = "form-control", @placeholder = "Username" })
+                        </div>
+                        <div class="col-md-6 my-3">
+                            @Html.Label("Password:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control", @placeholder = "Password" })
+                        </div>
+
+                        <div class="col-md-8 my-3">
+                            @Html.Label("Email:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.AdminEmail, new { @class = "form-control", @placeholder = "Email" })
+                        </div>
+                        <div class="col-md-4 my-3">
+                            @Html.Label("Roll:", new { @class = "text-muted" })
+                            @Html.TextBoxFor(x => x.AdminRoll, new { @class = "form-control", @placeholder = "Roll" })
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 text-center pt-5">
+                    <img src="@Html.DisplayFor(x=>x.AdminPhotoUrl)" style="height: 400px" />
+                </div>
+
+            </div>
+
+            <button class="btn btn-sm btn-primary px-5 mt-3 py-2">
+                <i class="fas fa-check mr-3"></i> Save
+            </button>
+        </form>
+    </div>
+
+}
+
+
